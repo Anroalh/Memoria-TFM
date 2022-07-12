@@ -1,0 +1,70 @@
+\documentclass[12pt]{report} %fuente a 12pt
+
+%% CONFIGURACIÓN DEL DOCUMENTO
+
+\input{estilos/estilos.tex}
+
+\addbibresource{bib/main.bib}
+
+%% DOCUMENTO 
+
+\begin{document}
+\pagenumbering{roman} 
+	
+%% Documentos axuliares (editar en cada .tex correspondiente)
+\input{subdocumentos/portada.tex}	
+	
+\input{subdocumentos/resumen.tex}
+
+\input{subdocumentos/dedicatoria.tex}
+
+\input{subdocumentos/indices.tex}
+
+%----------
+%	A PARTIR DE AQUÍ EMPIEZA LA MEMORIA DE VERDAD
+%----------	
+\clearpage
+\pagenumbering{arabic} % numeración con múmeros arábigos para el resto de la publicación	
+
+\include{doc/Introducción_y_objetivos.tex}
+
+\include{doc/Estado_del_arte.tex}
+
+\include{doc/marco_teorico.tex}
+
+\include{doc/metodologia.tex}
+
+\include{doc/resultados.tex}
+
+\include{doc/discusion_resultados.tex}
+
+\include{doc/impacto_socio_economico.tex}
+
+\include{doc/cronograma_tareas.tex}
+
+\include{doc/conclusiones.tex}
+
+\include{doc/futuras_lineas_trabajo.tex}
+
+\clearpage
+
+%----------
+%	BIBLIOGRAFÍA
+%----------	
+
+%\nocite{*} % Si quieres que aparezcan en la bibliografía todos los documentos que la componen (también los que no estén citados en el texto) descomenta está lína
+
+
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\setquotestyle[english]{british} % Cambiamos el tipo de cita porque en el estilo IEEE se usan las comillas inglesas.
+\printbibliography
+
+
+\input{doc/anexos.tex}
+
+
+
+
+
+\end{document}

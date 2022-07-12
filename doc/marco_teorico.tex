@@ -1,0 +1,160 @@
+\chapter{Marco teórico.}
+
+Todo proceso de clasificación de imágenes puede dividirse en los siguientes pasos:
+
+\begin{itemize}
+	\item Tratado inicial de las imágenes
+	\item Extracción de características
+	\item Tratamiento de datos
+	\item Entrenamiento de modelo de clasificación
+	\item Evaluación modelo de clasificación
+\end{itemize}
+
+\section{Extracción de características}
+
+En este paso el objetivo es obtener información cuantitativa (númerica) de las muestras a partir de diversos métodos.\\ Por ejemplo, de una clasificación de números escritos a mano se pueden obtener características como el número de trazos, anchura del contorno, color, etc. Es decir, se obtienen una serie de propiedades informativas de la muestra para, después, entrenar el modelo de clasificación. 
+\linebreak
+Para este trabajo, se han utilizado los siguientes métodos:
+\begin{itemize}
+	\item Descriptores de Fourier.
+	\item Momentos de imagen Hu.
+	\item Extracción de contornos.
+	\item Descriptores locales binarios (\textit{Local Binary Patterns})
+	\item Histograma de gradientes.
+	\item *Método propio.
+\end{itemize}
+
+\subsection{Momentos de imagen.}
+
+Los momentos de imagen son un promedio de las intensidades de una imagen binaria. La convención habitual define un momento \(M\) para una imagen binaria \(B\) de la siguiente forma:
+
+\begin{equation}
+	\label{eqn:momento}
+	M_{ij} = \sum_{x}^{} \sum_{y}^{} x^{i} y^{j} B(x,y)
+\end{equation}
+
+Utilizando la ecuación \ref{eqn:momento}, se pueden obtener características la imagen como los centroides:
+\begin{equation}
+	\label{eqn:momentos_x_centroide}
+	\overline{x} = \dfrac{M_{10}}{M_{00}}
+\end{equation}
+\begin{equation}
+	\label{eqn:momentos_y_centroide}
+	\overline{y} = \dfrac{M_{01}}{M_{00}}
+\end{equation}
+
+Sin embargo, aplicando una transformación a la ecuación \ref{eqn:momento}, se pueden obtener momentos invariantes a la traslación:
+
+\begin{equation}
+	\label{eqn:momentos_central}
+	\mu_{i,j} = \sum_{x} \sum_{y} (x-\overline{x})^{i} (y-\overline{y})^{j} I(x,y)
+\end{equation}
+
+A la ecuación \ref{eqn:momentos_central} se la conoce como \textbf{momentos centrales}.
+
+Además, aplicando otra transformación se pueden obtener momentos invariantes al escalado también:
+
+\begin{equation}
+	\label{eqn:momento_normalizado}
+	\eta_{i,j} = \dfrac{\mu_{i,j}}{\mu_{00}^{\dfrac{i+j}{2}+1}}
+\end{equation}
+
+La fórmula \ref{eqn:momento_normalizado} se conoce como \textbf{momento centralizado}.
+
+\subsubsection{Momentos de Hu}
+
+Los momentos de Hu \cite{1057692} son un un conjunto de siete fórmulas obtenidas a partir de los momentos centralizados que permiten obtener siete momentos invariantes tanto a traslación, rotación, escalado y volteado (el séptimo momento es el invariante a volteado, cambiando de signo cuando la imagen es reflejada).
+
+
+\begin{equation}
+	\label{eqn:hu_momentos}
+	\begin{split}
+		M_{1} = \eta_{20} + \eta_{02} \\
+		M_{2} = (\eta_{20}-\eta_{02})^{2} + 4\eta_{11}^{2} \\
+		M_{3} = (\eta_{30}-3\eta_{12})^{2} + (3\eta_{21}-\eta_{03})^{2} \\
+		M_{4} = (\eta_{30}+\eta_{12})^{2} + (\eta_{21}+\eta_{03})^{2} \\
+		M_{5} & = (\eta_{30}-3\eta_{12})(\eta_{30}+\eta_{12})[(\eta_{30}+\eta_{12})^{2}-3(\eta_{21}+3\eta_{03})^{2}] \\
+		& +(3\eta_{21}-\eta_{03})(\eta_{21}+\eta_{03})[3(\eta_{30}+\eta_{12})^{2}-(\eta_{21}+\eta_{03})^{2}] \\
+		M_{6} & = (\eta_{20}-\eta_{02}[(\eta_{30}+\eta_{12})^{2}-(\eta_{21}+\eta_{03})^{2}] \\
+		& +4\eta_{11}(\eta_{30}+\eta_{12})(\eta_{21}+\eta_{03}) \\
+		M_{7} = (3\eta_{21}-\eta_{03})(\eta_{30}+\eta_{12})[(\eta_{30}+\eta_{12})^{2}-3(\eta_{21}+3\eta_{03})^{2}] \\
+		& -(\eta_{30}-3\eta_{12})(\eta_{21}+\eta_{03})[3(\eta_{30}+\eta_{12})^{2}-(\eta_{21}+\eta_{03})^{2}]
+	\end{split}
+\end{equation}
+
+
+A partir de \ref{eqn:hu_momentos}, se pueden obtener siete características númericas.
+
+\section{Histograma de gradientes}
+
+El histograma de gradientes \cite{osti_6007283} es una técnica de extración de características muy utilizada en la detección de objetos.
+
+A partir de una imagen binaria de dimensiones $ nxm $, se calculan los gradientes de intensidad, así como la magnitud y el ángulo:
+
+\begin{equation}
+	\label{eqn:hog_GxGy}
+	\begin{split}		
+		G_{x} = B(x+1,y) - B(x,y) \\
+		G_{y} = B(x,y+1) - B(x,y)
+	\end{split}
+\end{equation}
+
+La ecuación \ref{eqn:hog_GxGy} determina los gradientes de la imagen binaria \(B\). Tanto \(G_{x}\) como \(G_{y}\) son dos imágenes binarias con la información de gradientes en ejes X e Y, respectivamente. 
+A partir de la ecuación \ref{eqn:hog_GxGy}, se obtienen las magnitudes y ángulos:
+
+\begin{equation}
+	\label{eqn:hog_mag}
+	Mag_{(x,y)} (\mu)= \sqrt{G_{x}^{2}+G_{y}^{2}}
+\end{equation}
+
+\begin{equation}
+	\label{eqn:hog_angulo}
+	Ang_{(x,y)} (\theta) = \lvert tan^{-1}(\dfrac{G_{y}}{G_{x}})\lvert
+\end{equation}
+
+Tanto la ecuación \ref{eqn:hog_mag} como \ref{eqn:hog_angulo} representan imágenes binarias.
+
+El siguiente paso consiste en dividir las imágenes de magnitud y ángulos en $ N $ cuadrículas, pudiendo ser $ N = 1 $ (una única cuadrícula).
+
+Para cada cuadrícula se representa un histograma de 9 posiciones, con cada posición en el rango $ [\theta,\theta+\delta\theta) $. Convencionalmente, se suele utilizar $\delta\theta = 20^{\circ}$ . De esta forma se obtiene el siguiente histograma $ H_{N}$:
+
+\begin{table}[htb]
+	\centering
+	\caption{}
+	\label{tab:hog_histograma_tabla}
+	\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|}
+		\hline
+		Magnitud &    &    &    &    &    &     &     &     &     \\ \hline
+		Ángulo   & 0  & 20 & 40 & 60 & 80 & 100 & 120 & 140 & 160 \\ \hline
+	\end{tabular}
+\end{table}
+
+A cada intervalo angular y de magnitud, se le denomina $ \theta_{j} $ y $ \mu_{j} $, respectivamente, para $ j\:\epsilon\:[0,8]$ .
+
+De tal forma, si en la cuadrícula $ N_{i} $ existe un $\theta_{x,y}$ que pertenece al rango $ [\theta,\theta+\delta\theta j) $, para $ j\:\epsilon\:[0,8]$, se determina que $ \mu_{j} = \mu_{x,y} + \mu_{j}$.
+
+\begin{equation}
+	\label{eqn:hog_sum_magnitudes}
+	\mu_{j} = \sum{\mu_{x,y}} \iff \theta_{x,y}\:\epsilon\:[\theta,\theta+\delta\theta \cdot j)
+\end{equation}
+
+Existen casos en los que $\theta_{x,y} > 160^{\circ}$, entonces $\mu_{x,y}$ contribuye tanto a $ 0^{\circ} $ como a $160^{\circ}$.
+
+\begin{equation}
+	\setlength{\jot}{14pt}
+	\label{eqn:hog_angulo_mayor_de_160}
+	\begin{split}
+		\dfrac{180-\theta_{x,y}}{20}\cdot \mu_{x,y}\:\implies\: [160,180) \\
+		\left(1-\dfrac{180-\theta_{x,y}}{20}\right)\cdot \mu_{x,y}\:\implies\: [0,20)
+	\end{split}	
+\end{equation}
+
+El último paso consiste en normalizar el histograma:
+
+\begin{equation}
+	\label{eqn:hog_histograma_normalizacion}
+	\mu_{j} = \dfrac{\mu_{j}}{max\:(\mu_{j})}
+\end{equation}
+
+Tras la aplicación de \ref{eqn:hog_histograma_normalizacion}, se tienen $ 9\cdot N$ características, siendo $ N $ el número de cuadrículas.
+
