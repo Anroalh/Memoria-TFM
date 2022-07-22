@@ -2351,8 +2351,14 @@
   <bcf:section number="0">
     <bcf:citekey order="1">1057692</bcf:citekey>
     <bcf:citekey order="2">osti_6007283</bcf:citekey>
-    <bcf:citekey order="3">1057692</bcf:citekey>
-    <bcf:citekey order="4">osti_6007283</bcf:citekey>
+    <bcf:citekey order="3">572934</bcf:citekey>
+    <bcf:citekey order="4">frost_2020</bcf:citekey>
+    <bcf:citekey order="5">10.1371/journal.pone.0118432</bcf:citekey>
+    <bcf:citekey order="6">1057692</bcf:citekey>
+    <bcf:citekey order="7">osti_6007283</bcf:citekey>
+    <bcf:citekey order="8">572934</bcf:citekey>
+    <bcf:citekey order="9">frost_2020</bcf:citekey>
+    <bcf:citekey order="10">10.1371/journal.pone.0118432</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

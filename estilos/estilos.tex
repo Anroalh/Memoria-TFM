@@ -18,6 +18,12 @@ hmargin=3cm
 
 % Soporte para GENERAR PDF/A --es importante de cara a su inclusión en e-Archivo porque es el formato óptimo de preservación y a la generación de metadatos, tal y como se describe en http://uc3m.libguides.com/ld.php?content_id=31389625. En la carpeta incluímos el archivo plantilla_tfg_2017.xmpdata en el que puedes incluir los metadatos que se incorporarán al archivo PDF cuando lo compiles. Ese archivo debe llamarse igual que tu archivo .tex. Puedes ver un ejemplo en esta misma carpeta.
 \usepackage[a-1b]{pdfx}
+\usepackage{svg}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % ENLACES
 \usepackage{hyperref}
@@ -27,6 +33,7 @@ hmargin=3cm
 
 % EXPRESIONES MATEMATICAS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage[table]{xcolor}
 
 \usepackage{txfonts} 
 \usepackage[T1]{fontenc}
@@ -175,10 +182,42 @@ hmargin=3cm
 	xleftmargin=\parindent
 }
 
+\usepackage{blindtext}
+
+\usepackage[most]{tcolorbox}
+
+\makeatletter
+\NewDocumentCommand{\mynote}{+O{}+m}{%
+	\begingroup
+	\tcbset{%
+		noteshift/.store in=\mynote@shift,
+		noteshift=1.5cm
+	}
+	\begin{tcolorbox}[nobeforeafter,
+		enhanced,
+		sharp corners,
+		toprule=1pt,
+		bottomrule=1pt,
+		leftrule=0pt,
+		rightrule=0pt,
+		colback=yellow!20,
+		#1,
+		left skip=\mynote@shift,
+		right skip=\mynote@shift,
+		overlay={\node[right] (mynotenode) at ([xshift=-\mynote@shift]frame.west) {\textbf{Nota:}} ;},
+		]
+		#2
+	\end{tcolorbox}
+	\endgroup
+}
+\makeatother
+
 \captionsetup[lstlisting]{font=small, labelsep=period}
 % fijamos el estilo a utilizar 
 \lstset{style=estilo}
 \renewcommand{\lstlistingname}{\uppercase{Código}}
+
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
 
 
 %BIBLIOGRAFÍA - PUEDES ELEGIR ENTRE ESTILO IEEE O APA. POR DEFECTO ESTÁ CONFIGURADO IEEE. SI DESEAS USAR APA, COMENTA LAS LÍNEA DE IEEE Y DESCOMENTA LAS DE APA. Si haces cambios en la configuración de la bibliografía y no obtienes los resultados esperados, es recomendable limpiar los archivos auxiliares y volver a compilar en este orden: COMPILAR-BIBLIOGRAFIA-COMPILAR
