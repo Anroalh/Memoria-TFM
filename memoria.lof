@@ -6,4 +6,10 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces \relax }}{10}{figure.caption.9}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Distribuciones para un caso ejemplo de ANOVA\relax }}{11}{figure.caption.10}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Sacado de wikipedia (EDITAR)\relax }}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces División de dataset en entrenamiento y validación\relax }}{17}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Validación cruzada de 4 particiones\relax }}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Ejemplo clasificación Knn con datos bidimensionales (caso balanceado)\relax }}{19}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Ejemplo de SVM\relax }}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Recta óptima SVM\relax }}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Hiperplanos adicionales SVM\relax }}{22}{figure.caption.19}%
 \contentsfinish 
