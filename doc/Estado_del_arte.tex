@@ -1,3 +1,77 @@
 %% ESTADO DEL ARTE
 
 \chapter{Estado del arte}
+
+\section{Inteligencia Articial}
+
+Para entrar en el campo de la inteligencia artificial, ya sea para definirlo, conocer sus múltiples ramas, estudiarlo, etc., es imprescindible nombrar a  uno de sus más importantes creadores, John McCarthy. 
+
+Informático y científico cognitivo, John McCarthy definió la AI en 2004 como \textbf{la ciencia y la ingeniería de hacer máquinas inteligentes, especialmente programas informáticos inteligentes}\cite{mccarthy_2004}. Sin embargo, muchos años antes ya se empezaba a hablar de "máquinas inteligentes" con grandes figuras como Alan Turing y su famoso "¿Puede pensar una máquina?" (del original en inglés \textit{Can a machine think?}), donde aparece por primera vez el famoso Test de Turing, en el cual un interrogador humano trata de discriminar si a lo que se está enfrentando es otro humano o una máquina.
+
+A \textit{grosso modo}, el campo de la inteligencia artificial es un área de las matemáticas enfocado en la resolución y optimización de problemas.
+
+Originalmente, los investigadores de I.A. trataban de replicar el funcionamiento del cerebro humano, pero de tal es la complejidad es la tarea, que actualmente la I.A. se centra en el desarrollo de modelos para problemas específicos que no necesitan "pensar" necesariamente como lo haría un humano.
+
+%La aplicación de la inteligencia artificial en el mundo actual es tan extensa, que es complicado o casi imposible, resumir en una lista todos las disciplinas que hacen uso de ella. Algunos ejemplos para nuestro tiempo son los siguientes:
+%
+%\begin{description}
+%	\item[Conducción autónoma] 
+%	\item[Visión artificial] description
+%\end{description}
+
+Hoy en día se han desarrollado dos ramas de la inteligencia artificial, conocidas comúnmente en lo público por sus nombres en inglés \textit{machine learning} y \textit{deep learning}. Estas disciplinas son, realmente, algoritmos y métodos matemáticos de "inteligencia artificial" capaces de hacer predicciones sobre datos discretos (clasificación) o continuos (regresión). 
+
+Aún cuando son usadas indiscriminadamente para referirse a modelos de clasificación y regresión, el campo del aprendizaje profundo (\textit{deep learning}) es, realmente, un campo del \textit{machine learning}. 
+
+\subsection{\textit{Deep Learning}}
+
+El aprendizaje profundo, a diferencia de \textit{machine learning}, no requiere de un pre-procesado de datos, con preparación, selección, etc. Los datos pueden introducirse directamente en su forma primitiva en el modelo y este es el encargado de encontrar los patrones y características para discriminar.
+
+\subsection{\textit{Machine learning}}
+
+El nombre \textit{Machine learning} fue acuñado en primera instancia por Arthur Samuel, en referencia al juego de las damas, como "\textit{Programming computers to learn from experience should eventually eliminate the need for much of this detailed programming effort}\cite{Samuel1959SomeSI}.	
+
+Desde que Arthur Samuel escribiera aquel artículo en 1959 hasta hoy, ha habido innumerables avances tecnológicos que han permitido una mejora del campo de la inteligencia artificial. Las mejoras de almacenamiento con dispositivos capaces de almacenar descomunales cantidades de datos, procesadores con procesamiento paralelo en nubes y centros de datos, tarjetas gráficas para la manipulación matricial, etc.
+
+\textit{Machine learning} requiere la intervención humana para la preparación de un dataset procesado, estandarizado, normalizado, etc, el cual introducir en el modelo para que este, según las características escogidas por los usuarios, encuentre un estado en el cual el modelo discrimine.
+
+Los algoritmos de \textit{Machine learning} pueden clasificarse en dos grandes grupos:
+
+\subsubsection{Aprendizaje supervisado}
+
+Del inglés \textit{supervised learning}, se caracteriza por el uso de datos con referencias a las clases a las que pertenecen. El modelo es entrenado según unos datos de entrenamiento y sus etiquetas de correspondencia a su clase, modificando los parámetros del modelo matemático para obtener la mejor clasificación posible. Debido a que son evaluados con datos diferentes respecto con los que se entrenan, existe la posibilidad de que sobre ajusten su discriminación y no generalicen lo suficiente los datos de entrenamiento, resultando en una mala clasificación para cualquier otro dato que no sea de ese grupo; o puede que subajusten, donde generalizarían demasiado en los datos de entrenamiento sin recoger información relevante para la discriminación de otros datos.
+
+Muchos son los modelos de clasificación supervisada, desde los modelos SVM de clasificación binaria basados en hiperplanos de $n$ dimensiones, desarrollado por el equipo de Vladimir Vapnik en los laboratorios Bell de AT\&T durante los primeros años de la década de 1990; como el modelo Knn desarrollado por Evelyn Fix y Joseph Hodges en 1951; el clasificador de Naive Bayes (ó Clasificador bayesiano ingenuo) basado en el teorema de Bayes; o los famosos árboles de decisión desarrollados también en los laboratorios Bell de AT\&T por Tin Kam Ho y más tarde la implementación algorítmica por Leo Breiman y Adele Cutler.
+
+\subsubsection{Aprendizaje no supervisado}
+
+Del inglés \textit{unsupervised learning}, a diferencia del supervisado los datos de clasificación no cuentan con un etiquetado de la clase a la que pertenecen, sino que es el modelo el encargado de encontrar las fronteras que separen a los grupos de datos para determinar su pertenencia. Aunque no es una categoría en si de \textit{machine learning}, suele utilizarse para agrupar todos aquellos métodos que extraen información de datos sin pre procesar. Son altamente usados para encontrar patrones "ocultos" o grupos de datos sin necesidad de interpretación humana. Una parte de estos modelos son las famosas redes neuronales, cuyos datos son introducidos de forma primitiva y es el propio modelo el encargado de encontrar las características y diferentes grupos a los que estos datos puedan pertenecer.
+
+Entre los muchos modelos, cabe destacar el modelo PCA (Principal Component Analysis) usado ampliamente para la reducción de características mediante la transformación de una dimensión a otra del espacio inicial de los datos.
+
+\subsection{Implementación}
+
+Cuando se habla de la implementación de un modelo de inteligencia artificial, múltiples son los lenguages de programación que entran en juego: C, C++, Python, R, MATLAB, etc. Sin embargo, de entre todos estos, es Python la elección a nivel industrial. Aunque es importante considerar que las funciones y demás métodos están escritas en C o C++, estas al final son llamadas con Python, la herramienta que el usuario maneja.
+
+Python es conocido por ser un lenguaje de alto nivel con una sintaxis que se asemeja a la forma de hablar y pensar de una persona, haciéndolo un lenguage ideal para principiantes con barreras de entradas de muy baja dificultad. Además, ser un proyecto de código abierto permite a los desarrolladores acomodar y personalizar Python a sus necesidades y, en el mundo de la inteligencia artificial donde los problemas crecen y evolucionan, poder disponer de una poderosa herramienta adaptable es de extrema ayuda para un rápido y eficaz desarrollo. Igualmente, el código abierto implica que cualquier usuario puede "jugar" con Python descubriendo y resolviendo bugs, ayudando al mantenimiento y mejora del lenguaje.
+
+Sin embargo, la principal razón por la que Python es uno de los lenguages de referencia en inteligencia artificial se debe a Google.
+
+Cuando Google se fundó en 1998, cuatro años se había fundido su mayor competidor en la época, Yahoo. Por aquel entonces, ambas empresas buscaban un lenguaje de programación de código abierto y de muy alto nivel, ya que el tiempo de desarrollo era (y es) muchísimo más importante que el tiempo de procesado. Google apostó por Python y Yahoo por Perl.
+
+El ganador, Google, decidió invertir y apostar por Python, hasta tal punto de servicios como su famoso motor de búsqueda o Youtube usen el lenguaje, así como todos sus departamentos de inteligencia artificial y de robótica\cite{intheplex}.
+
+Otro importante aspecto es la cantidad de librerías escritas para Python. Los dos mayores exponentes de este caso son las famosas Numpy y Scipy. Scikit-learn (una librería de machine learning) está escrita específicamente para Python (en C y C++) sobre Numpy, al igual que PyTorch y Keras (librerías de deep learning). Python es famoso por su extrema facilidad a la hora de importar librerías e instalarlas en el entorno de trabajo.
+
+No obstante, Python es un lenguage dinámico interpretado, que lo hace, por definición, lento. Pero la facilidad de escribir un código prototipo de forma rápida y que funcione es ventajoso frente a otros lenguajes más rápidos pero de menor nivel (C, C++) ya que el tiempo que el desarrollador emplear en pensar e implementar la solución a un problema es mucho más importante que el tiempo de ejecución del código). 
+Por otro lado, a la hora de desarrollar un prototipo o probar posibles soluciones, es un error enfocarse en una optimización prematura\cite{artofcomputer}.
+
+
+
+Los modelos de \textit{machine learning} son, realmente, modelos matemáticos con reglas condicionantes, probabilísticas, lógicas, etc, que requieren de la aplicación de una optimización para obtener los mejores valores de dicho modelo (veáse, por ejemplo, la condición de optimización de un modelo SVM en \ref{eqn:svm_soft_margin}). 
+
+Dado que los conocimientos necesarios para la resolución de estos problemas son muy elevados, existen librerías de programación que implementan clases y funciones, en las cuales sólo es necesario modificar parámetros, que devuelven los modelos entrenados y listos para su uso.
+
+Algunos ejemplos, para Python, son Sklearn, Pytorch, OpenCV y Keras, entre muchos otros.
+
+

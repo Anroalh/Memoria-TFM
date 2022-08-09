@@ -39,6 +39,10 @@ hmargin=3cm
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+% Para rotar imágenes 90º
+\usepackage{rotating}
+\usepackage{tikz}
+
 \usepackage[spanish, es-tabla]{babel} 
 \usepackage[babel, spanish=spanish]{csquotes}
 \AtBeginEnvironment{quote}{\small}
@@ -187,6 +191,15 @@ hmargin=3cm
 \usepackage[most]{tcolorbox}
 
 \makeatletter
+\NewDocumentCommand{\imagetest}{+O{}+m}{
+	\begin{figure}[H]
+		\centering
+		\captionsetup{justification=centering}
+		\includegraphics[width=\textwidth]{imagenes/vacia.pdf}
+		\caption{Aquí debe ir una imagen sin referencia}
+	\end{figure}	
+}
+
 \NewDocumentCommand{\mynote}{+O{}+m}{%
 	\begingroup
 	\tcbset{%

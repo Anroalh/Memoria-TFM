@@ -1,4 +1,4 @@
-\chapter{Marco teórico.}
+\chapter{Marco teórico.} \label{cap:marco_teorico}
 
 \mynote{Este capítulo sirve como una breve introducción a todos los métodos, conceptos y modelos considerados para el desarrollo de este trabajo.}
 
@@ -15,7 +15,7 @@ Todo proceso de clasificación de imágenes puede dividirse en los siguientes pa
 \section{Extracción de características}
 \label{section:Extracción de catacterísticas}
 
-En este paso el objetivo es obtener información cuantitativa (númerica) de las muestras a partir de diversos métodos.\\ Por ejemplo, de una clasificación de números escritos a mano se pueden obtener características como el número de trazos, anchura del contorno, color, etc. Es decir, se obtienen una serie de propiedades informativas de la muestra para, después, entrenar el modelo de clasificación. 
+En este paso el objetivo es obtener información cuantitativa (numérica) de las muestras a partir de diversos métodos.\\ Por ejemplo, de una clasificación de números escritos a mano se pueden obtener características como el número de trazos, anchura del contorno, color, etc. Es decir, se obtienen una serie de propiedades informativas de la muestra para, después, entrenar el modelo de clasificación. 
 
 Para este trabajo, se han utilizado los siguientes métodos:
 \begin{itemize}
@@ -191,7 +191,7 @@ Teóricamente, el número máximo de características extraibles es 256 (ver \re
 \end{equation}
 
 \pagebreak
-\subsection{Descriptores de Fourier}
+\subsection{Descriptores de Fourier} \label{subsection:fourier}
 
 Los descriptores de Fourier son un método de extracción de características por el cual un objeto bidimensional, cuyos puntos tienen las coordenadas $ (x_{k},\:y_{k})$, es mapeado a un dominio complejo de la forma $(x_{k},\:iy_{k})$. De tal forma, el objeto es tratado como una señal discreta compleja a la cual se aplica la transformada discreta de Fourier para encontrar sus armónicos (descriptores de Fourier).
 
@@ -336,9 +336,11 @@ Antes de entrar en la sección de modelos de clasificación, es necesario defini
 
 En una primera instancia, es necesario presentar la \nameref{tab:matriz_confusion}.
 
+\subsection{Matriz de confusión}
+
 \begin{table}[h]
 	\centering
-	\caption{Matriz de confusión}
+	\caption{Matriz de confusión binaria}
 	\label{tab:matriz_confusion}
 	\begin{tabular}{cc|cc|}
 		\cline{3-4}
@@ -351,11 +353,152 @@ En una primera instancia, es necesario presentar la \nameref{tab:matriz_confusio
 
 La matriz de confusión es una herramienta muy utilizada para representar y ver de forma sencilla los resultados de una clasificación. En el caso de la tabla \ref{tab:matriz_confusion}, se representa una matriz de confusión para un caso de clasificación binaria, sin embargo puede utilizarse para casos multiclases.
 
+A partir de la matriz de confusión binaria se obtienen las métricas de rendimiento de evaluación de un clasificador: exactitud, precisión, exhaustividad, f1, etc.
+
+\begin{equation}
+	\mbox{Exactitud (ACC)} = \dfrac{TP+TN}{TP+TN+FP+FN}
+	\label{eqn:accuracy}
+\end{equation}
+
+\begin{equation}
+	\mbox{Exhaustividad (TPR)} = \dfrac{TP}{P} = \dfrac{TP}{TP+FN}
+	\label{eqn:exhaustividad}
+\end{equation}
+
+\begin{equation}
+	\mbox{Precision} = \dfrac{TP}{TP+FP}
+	\label{eqn:precision}
+\end{equation}
+
+\begin{equation}
+	F_{\beta} = \left(1+\beta^{2}\right) \dfrac{2\cdot \mbox{Precision}\cdot \mbox{Exhaustividad}}{\mbox{Precision}+\mbox{Exhaustividad}}
+	\label{eqn:fbeta_score}
+\end{equation}
+
+\begin{itemize}
+	\item Exactitud: (en inglés \textit{accuracy}) (ecuación \ref{eqn:accuracy}) es una medida de la proporción de predicciones correctas (tanto TP como TN) del total de casos a predecir.
+	\item Precisión: (ecuación \ref{eqn:precision}) medida del porcentaje de valores positivos acertados (TP) de entre todos los valores positivos predichos (TP+FP). La precisión muestra la robustez del clasificador para acertar en los resultados positivos. Sin embargo, no tiene en cuenta como de bueno es acertando las clases negativas.
+	\item Exhaustividad: (en inglés \textit{recall}) (ecuación \ref{eqn:exhaustividad}) medida del porcentaje de las muestras positivas predichas correctamente como positivas (TP) entre el numero total de muestras positivas reales (TP+FN). La exhaustividad es una medida de la capacidad del clasificador para detectar muestras positivas. A mayor \textit{recall}, mas muestras positivas (correctas e incorrectas) detecta. Sin embargo, es una métrica que no tiene para nada en cuenta la clasificación de muestras negativas reales (FP y TN).
+	\item F-score: es una media armónica de la exhaustividad y la precisión. En función del parámetro $\beta$, se le da peso a la exhaustividad. A mayor valor de $\beta$, mas importanto el \textit{recall}. Es muy común utilizar la métrica para $\beta=1$, es decir, \textit{F1-score}, misma valoración tanto a la precisión como a la exhaustividad. Sin embargo, la métrica $F_{1}$ no considera los negativos verdaderos (TN) (ni \ref{eqn:exhaustividad}, ni \ref{eqn:precision} usan TN en sus cálculos) y para problemas con clases desbalanceadas es erróneo usar esta métrica, prefiriendo el uso del coeficiente de 	Kappa\cite{https://doi.org/10.48550/arxiv.2010.16061}.
+\end{itemize}
+
+\paragraph{Exactitud con problemas desbalanceados} \label{par:exactitud_mala} Si se supone un ejemplo donde se tiene un dataset de 10000 muestras de personas enfermas con gripe o coronavirus, del cual 9990 muestras son de personas con gripe, el clasificador podría asignar ciegamente a cada nueva muestra la condición de gripe y sería exacto en un $99.9\%$ de las veces. Lo que implica que la métrica de exactitud no es correcta para casos desbalanceados.
+
+\subsubsection{Matriz de confusión para problemas multiclases}
+
+Para problemas con más de 2 clases, la matriz de confusión \ref{tab:matriz_confusion} se convierte en \ref{tab:matriz_confusion_multiclase}, donde se representa el número de muestras de una clase que han sido identificadas como de otra clase o de si misma. Además de ser simétrica respecto de la diagonal.
+
+\begin{table}[H]
+	\centering
+	\caption{Matriz de confusión multiclase}
+	\label{tab:matriz_confusion_multiclase}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Clase & 1 & 2 & ... & N \\ \hline
+		1     & X &   &     &   \\ \hline
+		2     &   & X &     &   \\ \hline
+		...   &   &   & X   &   \\ \hline
+		N     &   &   &     & X \\ \hline
+	\end{tabular}
+\end{table}
+
+Para este caso, las variables la matriz de confusión binaria cambian de definición. Las predicciones correctas de cada clase con si misma (marcadas con X en la tabla \ref{tab:matriz_confusion_multiclase}) corresponden a los verdaderos positivos (TP); el sumatorio de los valores de cada fila, excepto el valor X, corresponde a los falsos positivos (FP); para una clase $N$, el sumatorio de todas las predicciones erróneas de las demás clases que predijeron pertenecer a la clase $N$ es el falso negativo (FN) de la $N$; y para una clase $N_{i}$ el sumatorio de los verdaderos positivos (TP) del resto de clases es TN (verdadero negativo) para la clase $N_{i}$. (Véase \nameref{par:convertir_matriz_binario_multiclase}).
+
+Las métricas de exactitud, precisión, exhaustividad y $F_{1}$, para este caso, son aplicables en cuanto a cada clase se refiere. Para $N$ clases se obtienen $N$ métricas, sin embargo, es deseable obtener un solo valor, de cada métrica, que represente a todas las clases. Para ello, es necesario hacer un promediado 'micro', 'macro' o ponderado.
+
+\subsubsection{Promediado 'micro', 'macro' y ponderado.}
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|} 
+		\hline
+		Clase & F1  & Precisión & Recall  \\ 
+		\hline
+		1     & $F_{1_1}$ & $P_{1}$        & $P_{1}$      \\ 
+		\hline
+		2     & $F_{1_2}$ & $P_{2}$        & $P_{2}$      \\ 
+		\hline
+		3     & $F_{1_3}$ & $P_{3}$        & $P_{3}$      \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item Macro: consiste en obtener la media aritmética entre clases. Da un mismo peso a todas las clases.
+		\begin{equation}
+			P = \dfrac{P_{i}+P_{i+1}+P_{i+2}+\mbox{...}+P_{N}}{N}
+		\end{equation}
+	\item Micro: consiste en aplicar la fórmula de cada métrica con el sumatorio total de variables de cada clase. 
+		\begin{equation}
+			P = \dfrac{\sum_{i=1}^{N} TP_{i}}{\sum_{i=1}^{N} \left(TP_{i}+FP_{i}\right)}
+		\end{equation}
+	\item Ponderado: consiste en aplicar la frecuencia de cada clase en el dataset total al sumatorio de métricas.
+		\begin{equation}
+			P = \sum_{i=1}^{N} P_{i}f_{i}; \mbox{ donde } f_{i} = \dfrac{N_{i}}{N}
+		\end{equation}
+\end{itemize}
+
+Tómese por ejemplo un caso de clasificación desbalanceada de tres clases según la matriz de confusión \ref{tab:ejemplo_promedios} y las métricas de cada clase \ref{tab:ejemplo_promedios_metricas}.
+
+\begin{table}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Clase & 0    & 1    & 2   \\ \hline
+		0     & 5331 & 1921 & 748 \\ \hline
+		1     & 1014 & 357  & 129 \\ \hline
+		2     & 344  & 122  & 34  \\ \hline
+	\end{tabular}
+	\caption{Ejemplo matriz de confusión para métricas ponderadas}
+	\label{tab:ejemplo_promedios}
+\end{table} 
+
+\begin{table}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Clase & Precisión & Recall & F1   & Nº de muestras \\ \hline
+		0     & 0.8       & 0.67   & 0.73 & 8000           \\ \hline
+		1     & 0.15      & 0.24   & 0.18 & 1500           \\ \hline
+		2     & 0.04      & 0.07   & 0.05 & 500            \\ \hline
+	\end{tabular}
+	\caption{Ejemplo métricas para caso desbalanceado}
+	\label{tab:ejemplo_promedios_metricas}
+\end{table}
+
+La tabla \ref{tab:ejemplo_promedios_metricas2} muestra las métricas promedio:
+
+\begin{table}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Clase     & Precisión & Recall & F1     & Nº de muestras \\ \hline
+		Micro     & 0.5722    & 0.4856 & 0.4433 & 8000           \\ \hline
+		Macro     & 0.3276    & 0.3241 & 0.3190 & 1500           \\ \hline
+		Ponderada & 0.6617    & 0.8322 & 0.611  & 500            \\ \hline
+	\end{tabular}
+	\caption{Ejemplo métricas promedio}
+	\label{tab:ejemplo_promedios_metricas2}
+\end{table}
+
+Para cualquiera de las tres métricas, $\mbox{Macro} < \mbox{Micro} < \mbox{Ponderada}$. Tomando como referencia la tabla \ref{tab:ejemplo_promedios_metricas}, para la precisión (por ejemplo), la clase cero tiene un valor muy elevado respecto a las otras dos, incluso se puede decir que el clasificador es nefasto con las clases dos y tres. Cuando se calcula la precisión macro, se realiza un simple media entre las precisiones, dándole el mismo peso ó importancia a cada clase, por tanto, los valores reducidos de las clases dos y tres contribuyen a bajar mucho el valor de la precisión total del problema, aún cuando para la clase cero es muy elevada. Para el caso ponderado, como a cada precisión se le multiplica por su frecuencia en el dataset, la clase cero contribuye a aumentar mucho el valor pues, tiene 8000 muestras ella sola frente a las 2000 de las clases una y dos. La precisión micro obtiene un valor intermedio ya que tiene en cuenta los falsos positivos de cada clase, aumentando la influencia de la clase más frecuente ya que sus falsos positivos serán mayores al tener más muestras.
+
+Por tanto, en general, para casos desbalanceados, si se considera a cada clase igual de importante que las demás, es conveniente utilizar un promedio macro. Si, por el contrario, es la clase más frecuente la más importante, el promedio ponderado es el preferible. Si se desea obtener un resultado que favorezca a la muestra más frecuente sin considerarla la más importante, un promedio micro es considerable.
+
+No siempre ocurre que la micro es mayor que la macro pues, depende de los datos. Si la clase más frecuente tiene la métrica más pequeña con las demás siendo muy elevadas, es probable que la micro resulte de menor magnitud que la macro (a diferencia del ejemplo presentado), ya que la micro favorece a la clase más frecuente, sin llegar al punto de la ponderación.
+
+Ya que, al final, depende del caso, es imprescindible contar con algo más de información (matriz de confusión, por ejemplo) para poder interpretar correctamente los datos.
+
+\paragraph{Conversión de problema multiclase a binario}\label{par:convertir_matriz_binario_multiclase} Es posible convertir un problema de clasificación multiclase a un conjunto de problemas binarios utilizando los métodos \nameref{par:OVR} o \nameref{par:OVO}.
+
 \subsection{Curva ROC} \label{subsection:ROC_curva}
 
 Lo habitual, además de deseable, a la hora de obtener los valores predichos de un clasificador, es hacerlo en forma de estimaciones probabilísticas en el rango $[0,\:1]$. De tal forma que, cuando se obtenga un valor, se puede comprobar con qué nivel de confianza el clasificador asigna a qué clase la muestra a predecir.
 
-Muchas librerías de algoritormos supervisados devuelven los resultados, por defecto, como valores enteros $0$ o $1$, aplicando un umbral de clasificación de $0.5$. En el caso de obtener $0.5000001$ para la clase positiva y $0.4999999$ para la negativa, el clasificador asignaría automáticamente la muestra a la clase positiva, obviando el hecho de que realmente no existe un nivel de confianza suficiente para clasificar la muestra de tal forma.
+Muchas librerías de algoritmos supervisados devuelven los resultados, por defecto, como valores enteros $0$ o $1$, aplicando un umbral de clasificación de $0.5$. En el caso de obtener $0.5000001$ para la clase positiva y $0.4999999$ para la negativa, el clasificador asignaría automáticamente la muestra a la clase positiva, obviando el hecho de que realmente no existe un nivel de confianza suficiente para clasificar la muestra de tal forma.
 
 Al obtenerse probabilidades y no valores discretos, para asignar clases, es necesario establecer un umbral de clasificación por el cual si $p(n) \geq umbral \rightarrow n = 1$. Por tanto, es conveniente encontrar un valor para el umbral de clasificación que haga que el clasificador funcione lo mejor posible.
 
@@ -363,16 +506,11 @@ Para cada valor de umbral se obtiene una matriz de confusión diferente, así co
 
 Para poder analizar estos casos, se recurre a la curva ROC (del inglés \textit{Receiver operating characteristic}).
 
-La curva ROC es un gráfico utilizado para determinar la abilidad discriminante de un clasificador binario según su umbral de clasificación es variado.
+La curva ROC es un gráfico utilizado para determinar la habilidad discriminante de un clasificador binario según su umbral de clasificación es variado.
 
 Este gráfico se basa en el espacio ROC, que es básicamente la representación de la tasa de verdaderos positivos (o exhaustividad) (\ref{eqn:exhaustividad}) frente a la tasa de falsos positivos (\ref{eqn:fpr}).
 
 \mynote{Exhaustividad: cantidad de valores reales positivos predichos como positivos.}
-
-\begin{equation}
-	Exhaustividad\:(TPR) = \dfrac{TP}{P} = \dfrac{TP}{TP+FN}
-	\label{eqn:exhaustividad}
-\end{equation}
 
 \begin{equation}
 	Tasa\: de\: falsos\: positivos\:(FPR) = \dfrac{FP}{N} = \dfrac{FP}{FP+TN}
@@ -387,11 +525,11 @@ Este gráfico se basa en el espacio ROC, que es básicamente la representación 
 	\label{fig:roc_curva}
 \end{figure}
 
-La línea de puntos roja representa un clasificador puramente aleatorio que asigna un $0.5$ de probabilidades de pertencer a la clase positiva a cada muestra.
+La línea de puntos roja representa un clasificador puramente aleatorio que asigna un $0.5$ de probabilidades de pertenecer a la clase positiva a cada muestra.
 
 Para valores de umbral en el rango $[0,\:1]$, se obtienen los valores de \ref{eqn:exhaustividad} y \ref{eqn:fpr}, y se representa el punto correspondiente en el gráfico. De tal forma, se obtiene una curva escalonada que representa la calidad del clasificador.
 
-El caso idóneo es aquel en el que la curva del clasificador es un escalón unidad, es decir, aquel clasificador que, para cualquier valor de umbral, se obtiene un 100\% de exhaustividad. Númericamente, este tipo de curva corresponde a una curva con una área bajo la curva de la unidad.
+El caso idóneo es aquel en el que la curva del clasificador es un escalón unidad, es decir, aquel clasificador que, para cualquier valor de umbral, se obtiene un 100\% de exhaustividad. Numéricamente, este tipo de curva corresponde a una curva con una área bajo la curva de la unidad.
 
 El peor caso es el clasificador cuya curva sea la inversa al escalón unidad pues, se obtiene un 0\% de exhaustividad para cualquier umbral, es decir, aquella curva con una área bajo la curva nula.
 
@@ -399,7 +537,7 @@ Por tanto, se define el parámetro \textbf{AUC}, del inglés \textit{Area Under 
 
 Sin embargo, la curva ROC no es correcta para casos desbalanceados ya que no representa correctamente los resultados, siendo necesario sustituirla por una curva de precisión-exhaustividad \cite{10.1371/journal.pone.0118432}. 
 
-\paragraph{Clasificación multiclase} La curva ROC y sus derivadas sólo son utilizables para problemas binarios. Para casos con más de dos clases, se requiere una clasificación de Uno-Contra-Todos (considerar una clase como positiva y el resto negativa, y repetir este proceso para cada clase, obteniéndose tantos clasificadores como clases haya), obteniendo tantas curvas ROC como clases, así como un valor AUC para cada clase, que representaría la calidad del clasificador de discriminar esa clase respecto a las demás.
+\paragraph{Clasificación multiclase} La curva ROC y sus derivadas sólo son utilizables para problemas binarios. Para casos con más de dos clases, se requiere una \nameref{par:OVR}, obteniendo tantas curvas ROC como clases, así como un valor AUC para cada clase, que representaría la calidad del clasificador de discriminar esa clase respecto a las demás; o \nameref{par:OVO}, obteniendo $\dfrac{N(N-1)}{2}$ curvas ROC y valores AUC.
 
 \subsection{Validación cruzada}
 
@@ -419,7 +557,7 @@ Sin embargo, cabe la posibilidad de que al dividir el dataset, los datos de la p
 
 Del inglés \textit{Cross-Validation}, la validación cruzada es un método de análisis de resultados en modelos de clasificación que garantiza la independencia de los resultados frente a la división de datos de entrenamiento y validación.
 
-El dataset incial es dividido en $N$ particiones (además, es de buenas prácticas mezclar los datos entre particiones) y cada partición es dividida en $N$ partes. $N-1$ partes de cada partición son empleadas para entrenar el modelo y la parte restante para validación. Este proceso se repite para todas las particiones, obteniendo $N$ resultados.
+El dataset inicial es dividido en $N$ particiones (además, es de buenas prácticas mezclar los datos entre particiones) y cada partición es dividida en $N$ partes. $N-1$ partes de cada partición son empleadas para entrenar el modelo y la parte restante para validación. Este proceso se repite para todas las particiones, obteniendo $N$ resultados.
 
 La figura \ref{fig:CV_cv4} representa una validación cruzada de cuatro particiones.
 
@@ -478,7 +616,7 @@ Con los $N$ resultados se realizan análisis estadísticos (principalmente media
 
 Esta sección presenta, teóricamente, los modelos propuestos para la resolución del trabajo. Aunque existen muchos otros tipos, solo se tratarán los comentados a continuación.
 
-\mynote{Los siguientes modelos se caracterizan por ser de aprendizaje supervisado. Los datos de entrenamiento son presentados en pares, con caracaterísticas y etiquetas de identificación.}
+\mynote{Los siguientes modelos se caracterizan por ser de aprendizaje supervisado. Los datos de entrenamiento son presentados en pares, con características y etiquetas de identificación.}
 
 \subsection{K-vecinos más cercanos}
 
@@ -529,7 +667,7 @@ En función del parámetro $k$, la muestra $M$ será asignada a la clase más re
 \paragraph{Centroide más cercano} Existe una variación al método knn que se basa en calcular la distancia de la muestra M a los centroides de cada clase. Es decir, cada clase se representa como el centroide de todos sus puntos, a partir del cual se calcula la distancia con la muestra objetivo y se escoge la clase con la mínima distancia. La ventaja de este método es que no requiere ningún parámetro, sólo especificar el tipo de distancia a utilizar, sin embargo, no es una buena opción cuando las clases son no-convexas así como si presentan varianzas muy diferentes.
 
 \paragraph{Knn con datos desbalanceados} El modelo knn no sufre con datos desbalanceados, sin embargo es posible implementar un peso por muestra invirtiendo su distancia, de tal forma que, a mayor distancia de la muestra,  menor influencia en el resultado.
-\section{SVM}
+\subsection{SVM}
 
 Del inglés, \textit{Support Vector Machines}, SVM es un modelo de clasificación binaria supervisada que se basa en la aplicación de hiperplanos para separar las muestras de dos clases.
 
@@ -610,16 +748,139 @@ Comparando con la ecuación \ref{eqn:svm_condicion_lineal}, $t = w^{T}x_{i}-b = 
 
 En el caso de que el clasificador prediga correctamente la clase, $y = t$, siendo $|y| = 1$ y, por tanto, la función de pérdida $h(y) = max(0,0) = 0$. Cuando la predicción no sea correcta, $y = -t$, la función de pérdida $h(y) = max(0,1-(-1)\cdot(1)) = max(0,2) = 2$. Es decir, $h(y)$ será nula cuando la predicción sea correcta.
 
-Esto significa que la función de pérdida $h(y)$ será nula cuando $x_{i}$ se encuentre en el lado correcto del hiperplano y fuera del márgen. 
+Esto significa que la función de pérdida $h(y)$ será nula cuando $x_{i}$ se encuentre en el lado correcto del hiperplano y fuera del margen. 
 
-Para controlar cuanto error se permite mientras que la mayoría de puntos de cada clase se mantienen en su lado correcto del hiperplano y márgen, se define un parámetro $C>0$. De tal forma, la condición \ref{eqn:svm_hard_margin} se puede reescribir como:
+Para los puntos que no puedan clasificarse y su error sea permitido, se introduce la variable $\zeta_{i}$ para $x_{i}$, que no es sino la función \ref{eqn:svm_hinge_loss} evaluada para $x_{i}$. Además, se define un parámetro de regularización, $C$, que controla el maximizar el margen contra minimizar el error. Es decir, para elevados valores de C, el problema de optimización determinará un hiperplano con los márgenes mínimos posibles para poder abarcar todos los puntos posibles (minimizar los puntos mal clasificados); para valores reducidos de C, el optimizador buscará un hiperplano con márgenes más amplios, aunque cometa el error de clasificar erróneamente más puntos.
+
+Por tanto, para los puntos "fuera de posición", el error se define como:
 
 \begin{equation}
-	\mbox{Minimizar } C||w|| + \left[\dfrac{1}{n} \sum_{i=1}^{n} max\left(0,1-y_{i}\left(w^{T}x_{i}-b\right)\right)\right]
+	C\sum_{i=1}^{n} \zeta_{i} = C\sum_{i=1}^{n} max\left(0,1-t\cdot y\right)
+	\label{eqn:svm_error_soft_margin}
+\end{equation}
+
+De tal forma, ahora el problema de optimización es:
+
+\begin{equation}
+	\begin{split}
+		\mbox{Minimizar } \dfrac{1}{2} ||w||^{2} + C\sum_{i=1}^{n} max\left(0,1-t\cdot y\right) \\	
+		\mbox{ acorde a la condición } y_{i}(w^{T}x_{i}-b)\geq 1-\zeta_{i},\: \forall\: 1\leq i\leq n
+	\end{split}
 	\label{eqn:svm_soft_margin}
 \end{equation}
 
-\mynote{El desarrollo para llegar hasta \ref{eqn:svm_soft_margin} es mucho más extenso de lo presentado aquí (en verdad es la releche de largo xd) y no es el propósito de este trabajo.}
+\paragraph{Parámetro $\nu$} INSERTAR CITA proponen el parámetro $\nu$ como alternativa a C, que representa un límite superior en la fracción de errores de margen y un límite inferior de la fracción de vectores de soporte. Es decir, el valor de $\nu$ determina el máximo de muestras a ser mal clasificadas (fuera de márgenes) y el número mínimo de muestras que serán vectores de soporte. $C$ y $\nu$ se relacionan de la forma $\nu = \dfrac{c_{1}c_{2}}{C}$ siendo $c_{1}$ y $c_{2}$ constantes a calcular por el optimizador.
+
+\subsubsection{Problema dual}
+
+De acuerdo al Teorema de la Dualidad, es posible ver el problema de optimización definido por \ref{eqn:svm_hard_margin} (conocido como problema primitivo) desde otra perspectiva (problema dual).
+
+Utilizando el método de los multiplicadores de Lagrange, se puede definir la ecuación \ref{eqn:svm_hard_margin} como \ref{eqn:svm_lagrange_multiplicadores}, a partir de la cual el problema de optimización se define como \ref{eqn:svm_lagrange_optimizacion}. Por un lado se busca encontrar el valor de $w,b$ que minimice el valor de \ref{eqn:svm_lagrange_multiplicadores} para cada $\alpha_{i}$ y escoger, de entre todos los $\alpha_{i}$, el valor máximo.
+
+\begin{equation}
+	\mathcal{L}(w,b,\alpha) = \dfrac{1}{2}||w||^{2}	- \sum_{i=1}^{n}\alpha_{i}(y_{i}((w^{T}x_{i}-b)-1)
+	\label{eqn:svm_lagrange_multiplicadores}
+\end{equation}
+
+\begin{equation}
+	\mbox{MAX}_{\alpha_{i}\geq0}\left[\mbox{MIN}_{w,b}\:\mathcal{L}(w,b,\alpha)\right]
+	\label{eqn:svm_lagrange_optimizacion}
+\end{equation}
+
+La resolución de \ref{eqn:svm_lagrange_optimizacion} se consigue derivando parcialmente $\mathcal{L}$ respecto de $w$ y de $b$:
+
+\begin{equation}
+	\begin{split}
+		\dfrac{\partial \mathcal{L}}{\partial w} = 0 \rightarrow w = \sum_{i=1}^{n} \alpha_{i}y_{i}x_{i} \\
+		\dfrac{\partial \mathcal{L}}{\partial b} = 0 \rightarrow \sum_{i=1}^{n} \alpha_{i}y_{i} = 0 = \alpha_{T}y \\
+	\end{split}
+	\label{eqn:svm_derivadas_lagrange}
+\end{equation}
+
+Para facilitar el cálculo, para los $x_{i}$ que no sean vectores soporte (a partir de ahora SV), sus multiplicadores de Lagrange $\alpha_{i} = 0$.
+
+De tal forma, si se sustituye \ref{eqn:svm_derivadas_lagrange} en \ref{eqn:svm_lagrange_optimizacion} se obtiene la expresión de optimización para un clasificador SVM de la forma dual:
+
+\begin{equation}
+	\mbox{MIN}_{\alpha_{i}\geq0} \left[\sum_{i=1}^{n}\alpha_{i} - \dfrac{1}{2}\sum_{i,j}\alpha_{i}\alpha_{j}y_{i}y_{j}x_{i}^{T}x_{j}\right]
+	\label{eqn:svm_dual}
+\end{equation}
+
+\mynote{En la ecuación superior, $(i,j)$ representan cada clase del problema.}
+
+Tanto la resolución del problema dual como la del primitivo permiten obtener las soluciones del otro (propiedad del Teorema de la Dualidad). Sin embargo, optimizar el SVM mediante \ref{eqn:svm_dual} permite hacer uso de Kernels.
+
+\subsubsection{Aplicación de kernels en SVM}
+
+En muchas aplicaciones, los datos a clasificar pueden no parecer ser linealmente separables. Véase, por ejemplo, la figura %%%%%%.
+
+\imagetest
+
+Un conjunto de datos $X \epsilon\: \rm I\!R^{n}$ puede ser no separable con hiperplanos en dimensión $n$. Sin embargo, para una dimensión $m$, tal que $m > n$, $X$ si es separable. De tal forma, se puede definir una función $\phi:\: \rm I\!R^{n}\: \rightarrow\: \rm I\!R^{m}$, que transforme los datos de un espacio dimensional $n$, donde no sean separables linealmente, a un espacio dimensional superior $m$ donde si lo sean.
+
+Haciendo referencia al problema dual, en la ecuación \ref{eqn:svm_dual}, segundo término, se presenta la multiplicación escalar de $x_{i}^{T}x_{j}$ para el espacio dimensional original $\rm I\!R^{n}$. Esta expresión se entiende, a \textit{grosso modo}, como que el clasificador SVM va a aprender de los datos en la dimensión $n$. 
+
+Si se da el casos de datos no lineales en $n$, pero si en $m$, el clasificador tendría que "aprender" de los datos en la dimensión $n$ y, por tanto, sería necesario calcular los valores de $X$ en $\rm I\!R^{m}$. Si $m$ es muy elevado, esto es computacionalmente muy pesado, haciendo que sea una gran desventaja.
+
+La aplicación de un kernel permite evitar tener que calcular la representación de $X$ en $\rm I\!R^{m}$, es decir, evita que el clasificador tenga que "aprender" de los valores en la dimensión superior, haciendo que sólo haga falta conocer el resultado del producto vectorial en $\rm I\!R^{m}$.
+
+Un kernel $k(x_{1},x_{2})$ es una función que, bajo las condiciones del Teorema de Mercer, puede expresarse como una multiplicación escalar $<\phi(x_{1}),\phi(x_{2})>$, siendo $\phi:\: \rm I\!R^{n}\: \rightarrow\: \rm I\!R^{m}$.
+
+Se define, por ejemplo, el kernel $k(x,x') = (x^{T}x')^{3}$, con $x,x'\:\epsilon\: \rm I\!R^{2}$, que resuelve el producto escalar de $x$ y $x'$ en $\rm I\!R^{4}$ usando sus formas en $\rm I\!R^{2}$, sin necesidad de calcular los valores de $x,x'$ en $\rm I\!R^{4}$ y realizar la multiplicación escalar en tal dimensión.
+
+\begin{equation}
+	\centering
+	\begin{gathered}
+		k(a,b) = (a^{T}b)^{3}
+		= ((a_{1},a_{2})^{T}(b_{1},b_{2}))^{3} \\
+		= (a_{1}b_{1}+a_{2}b_{2})^{3} \\
+		= a_{1}^{3}b_{1}^{3} + 3a_{1}^{2}b_{1}^{2}a_{2}b_{2} + 3a_{1}b_{1}a_{2}^{2}b_{2}^{2} + a_{2}^{3}b_{2}^{3} \\
+		= (a_{1}^{3},\sqrt{3}a_{1}^{2}a_{2},\sqrt{3}a_{1}a_{2}^{2},a_{2}^{3})^{T}\:(b_{1}^{3},\sqrt{3}b_{1}^{2}b_{2},\sqrt{3}b_{1}b_{2}^{2},b_{2}^{3}) \\
+		= \phi(a)\cdot\phi(b)		
+	\end{gathered}
+	\label{eqn:svm_kernel_ejemplo}
+\end{equation}
+
+Gracias a \ref{eqn:svm_kernel_ejemplo}, se ha obtenido el resultado de la multiplicación escalar $\langle \phi(x_{1}),\phi(x_{2})\rangle$, sin necesidad de transformarlos a $\rm I\!R^{4}$, haciendo uso de sus formas en $\rm I\!R^{2}$, ahorrando el tiempo y cálculo necesario para ello.
+
+De entre la gran cantidad de kernels ya definidos y los definibles por el usuario, se destacan los que serán usados más adelante en la implementación:
+
+\begin{itemize}
+	\item Kernel lineal 
+		\begin{equation}
+			k(x_{1},x_{2}) = \langle x_{1},x_{2}\rangle
+			\label{eqn:svm_kernel_lineal}
+		\end{equation}	
+	\item Kernel polinómico 
+		\begin{equation}
+			k(x_{1},x_{2}) = (\gamma\langle x_{1},x_{2}\rangle+r)^{d}
+			\label{eqn:svm_kernel_poly}
+		\end{equation}
+	\item Kernel RBF
+		\begin{equation}
+			k(x_{1},x_{2}) = e^{-\gamma||x_{1}-x_{2}||^{2}}
+			\label{eqn:svm_kernel_rbf}
+		\end{equation}
+	\item Kerngel Sigmoid 
+		\begin{equation}
+			k(x_{1},x_{2}) = tanh(\gamma\langle x_{1},x_{2}\rangle+r)
+			\label{eqn:svm_kernel_sigmoid}
+		\end{equation}
+\end{itemize}
+
+\subsubsection{Clasificación multiclase con SVM}
+
+Debido al uso de hiperplanos, los modelos SVM sólo son capaces de clasifican binaria. Si se requiere su uso para la clasificación de más de dos clases, es necesario elegir entre dos estrategias:
+
+\paragraph{Clasificación Uno contra Todos} \label{par:OVR}
+
+Abreviada como OVR (del inglés \textit{One vs Rest}), el método de uno contra todos convierte una clasificación multiclase a binaria considerando la clase objetivo como la clase positiva (1) y las clases restantes como negativas (0). Sin embargo, requiere entrenar un clasificador por clase. Para un caso de $N$ clases, se requiere de $N$ clasificadores.
+
+\paragraph{Clasificación Uno contra Uno} \label{par:OVO}
+
+Abreviada como OVO (del inglés \textit{One vs One}), el método de uno contra uno convierte una clasificación multiclase a binaria considerando una clase como positiva (1) y entrenando un clasificador para cada clase restante, considerada como negativa (0). Este planteamiento requiere entrenar $\dfrac{N(N-1)}{2}$ clasificadores, muchos más que con OVR, haciéndolo más lento y computacionalmente más pesado. Sin embargo, su gran ventaja es que, para métodos de clasificación (SVM y otros métodos) que sufran con grandes cantidades de datos, OVO solo clasifica entre dos clases, lo que implica clasificar muchas menos muestras en vez de la totalidad de ellas (OVR).
+
+% https://www.cs.toronto.edu/~urtasun/courses/CSC411_Fall16/16_svm.pdf
 
 
 

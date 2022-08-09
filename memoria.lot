@@ -1,7 +1,30 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Histograma de gradientes, tabla ejemplo\relax }}{5}{table.caption.6}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Matriz de confusión\relax }}{14}{table.caption.11}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Ejemplo distancias clasificación knn\relax }}{19}{table.caption.16}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Histograma de gradientes, tabla ejemplo\relax }}{11}{table.caption.6}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Matriz de confusión binaria\relax }}{20}{table.caption.11}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Matriz de confusión multiclase\relax }}{21}{table.caption.12}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Ejemplo matriz de confusión para métricas ponderadas\relax }}{22}{table.caption.14}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Ejemplo métricas para caso desbalanceado\relax }}{23}{table.caption.15}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Ejemplo métricas promedio\relax }}{23}{table.caption.16}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Ejemplo distancias clasificación knn\relax }}{29}{table.caption.21}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces N$^\circ $ de muestras para área B345\relax }}{42}{table.caption.29}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces N$^\circ $ de muestras para área C1C9\relax }}{43}{table.caption.31}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Resultados ANOVA para área B345\relax }}{44}{table.caption.32}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Resultados ANOVA para área C1C9\relax }}{45}{table.caption.34}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Mejores parámetros modelo Knn para área B345\relax }}{50}{table.caption.42}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Métricas por clase y promedios para área B345 con modelo Knn\relax }}{51}{table.caption.43}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Métricas promediadas Knn B345\relax }}{51}{table.caption.44}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Mejores parámetros modelo Knn para área C1C9\relax }}{55}{table.caption.49}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces Métricas por clase y promedios para área C1C9 con modelo Knn\relax }}{56}{table.caption.50}%
+\contentsline {table}{\numberline {6.10}{\ignorespaces Métricas promediadas Knn C1C9\relax }}{56}{table.caption.51}%
+\contentsline {table}{\numberline {6.11}{\ignorespaces Resultados AUC para diferentes Kernel SVM para área C1C9\relax }}{60}{table.caption.58}%
+\contentsline {table}{\numberline {6.12}{\ignorespaces AUC macro para C1C9\relax }}{60}{table.caption.59}%
+\contentsline {table}{\numberline {6.13}{\ignorespaces Resultados AUC para diferentes Kernel SVM para área B345\relax }}{64}{table.caption.66}%
+\contentsline {table}{\numberline {6.14}{\ignorespaces AUC macro para B345\relax }}{64}{table.caption.67}%
+\addvspace {10\p@ }
 \contentsfinish 

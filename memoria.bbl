@@ -19,6 +19,102 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{mccarthy_2004}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5a09cb54379c1dbe586716b1580d1e97}{%
+           family={McCarthy},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima McCarthy},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a09cb54379c1dbe586716b1580d1e97}
+      \strng{fullhash}{5a09cb54379c1dbe586716b1580d1e97}
+      \strng{bibnamehash}{5a09cb54379c1dbe586716b1580d1e97}
+      \strng{authorbibnamehash}{5a09cb54379c1dbe586716b1580d1e97}
+      \strng{authornamehash}{5a09cb54379c1dbe586716b1580d1e97}
+      \strng{authorfullhash}{5a09cb54379c1dbe586716b1580d1e97}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{John McCarthy's Home Page}
+      \field{month}{11}
+      \field{title}{WHAT IS ARTIFICIAL INTELLIGENCE?}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb https://borghese.di.unimi.it/Teaching/AdvancedIntelligentSystems/Old/IntelligentSystems_2008_2009/Old/IntelligentSystems_2005_2006/Documents/Symbolic/04_McCarthy_whatisai.pdf
+      \endverb
+      \verb{url}
+      \verb https://borghese.di.unimi.it/Teaching/AdvancedIntelligentSystems/Old/IntelligentSystems_2008_2009/Old/IntelligentSystems_2005_2006/Documents/Symbolic/04_McCarthy_whatisai.pdf
+      \endverb
+    \endentry
+    \entry{Samuel1959SomeSI}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f197e5f4f74fbe553ab71da7807dca79}{%
+           family={Samuel},
+           familyi={S\bibinitperiod},
+           given={Arthur\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{f197e5f4f74fbe553ab71da7807dca79}
+      \strng{fullhash}{f197e5f4f74fbe553ab71da7807dca79}
+      \strng{bibnamehash}{f197e5f4f74fbe553ab71da7807dca79}
+      \strng{authorbibnamehash}{f197e5f4f74fbe553ab71da7807dca79}
+      \strng{authornamehash}{f197e5f4f74fbe553ab71da7807dca79}
+      \strng{authorfullhash}{f197e5f4f74fbe553ab71da7807dca79}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IBM J. Res. Dev.}
+      \field{title}{Some Studies in Machine Learning Using the Game of Checkers}
+      \field{volume}{44}
+      \field{year}{1959}
+      \field{pages}{206\bibrangedash 227}
+      \range{pages}{22}
+    \endentry
+    \entry{intheplex}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7e521cf3616b7c888d511a80e9b82ad5}{%
+           family={Levy},
+           familyi={L\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \strng{fullhash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \strng{bibnamehash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \strng{authorbibnamehash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \strng{authornamehash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \strng{authorfullhash}{7e521cf3616b7c888d511a80e9b82ad5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{In the Plex: How Google Thinks, Works, and Shapes Our Lives}
+      \field{year}{2011}
+    \endentry
+    \entry{artofcomputer}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1dd533466eb3313074d496394d319407}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1dd533466eb3313074d496394d319407}
+      \strng{fullhash}{1dd533466eb3313074d496394d319407}
+      \strng{bibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorbibnamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authornamehash}{1dd533466eb3313074d496394d319407}
+      \strng{authorfullhash}{1dd533466eb3313074d496394d319407}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Art of Computer Programming}
+      \field{year}{1968}
+    \endentry
     \entry{1057692}{article}{}
       \name{author}{1}{}{%
         {{hash=c344b9ae1667f5b01984c25f0849bbca}{%
@@ -33,8 +129,8 @@
       \strng{authorbibnamehash}{c344b9ae1667f5b01984c25f0849bbca}
       \strng{authornamehash}{c344b9ae1667f5b01984c25f0849bbca}
       \strng{authorfullhash}{c344b9ae1667f5b01984c25f0849bbca}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IRE Transactions on Information Theory}
@@ -62,8 +158,8 @@
       \strng{authorbibnamehash}{99e597744eb4c55d0fba0e59d4f1f82f}
       \strng{authornamehash}{99e597744eb4c55d0fba0e59d4f1f82f}
       \strng{authorfullhash}{99e597744eb4c55d0fba0e59d4f1f82f}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{1}
@@ -95,8 +191,8 @@
       \strng{authorbibnamehash}{4669a72207df4023489eb367a606719d}
       \strng{authornamehash}{4669a72207df4023489eb367a606719d}
       \strng{authorfullhash}{4669a72207df4023489eb367a606719d}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
@@ -124,8 +220,8 @@
       \strng{authorbibnamehash}{28febaf5a5af05b79f525b52dbd36b42}
       \strng{authornamehash}{28febaf5a5af05b79f525b52dbd36b42}
       \strng{authorfullhash}{28febaf5a5af05b79f525b52dbd36b42}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Statistics By Jim}
@@ -137,6 +233,40 @@
       \verb{url}
       \verb https://statisticsbyjim.com/anova/f-tests-anova/
       \endverb
+    \endentry
+    \entry{https://doi.org/10.48550/arxiv.2010.16061}{article}{}
+      \name{author}{1}{}{%
+        {{hash=590aed25666f7ee9c7f2009bd208cea8}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelimb M.\bibnamedelimi W.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{fullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{bibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorbibnamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authornamehash}{590aed25666f7ee9c7f2009bd208cea8}
+      \strng{authorfullhash}{590aed25666f7ee9c7f2009bd208cea8}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Evaluation: from precision, recall and F-measure to ROC, informedness, markedness and correlation}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2010.16061
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2010.16061
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2010.16061
+      \endverb
+      \keyw{Machine Learning (cs.LG),Methodology (stat.ME),Machine Learning (stat.ML),FOS: Computer and information sciences,FOS: Computer and information sciences}
     \endentry
     \entry{10.1371/journal.pone.0118432}{article}{}
       \name{author}{2}{}{%
@@ -160,8 +290,8 @@
       \strng{authorbibnamehash}{768d060c7634a71068641481ebdd8624}
       \strng{authornamehash}{768d060c7634a71068641481ebdd8624}
       \strng{authorfullhash}{768d060c7634a71068641481ebdd8624}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Binary classifiers are routinely evaluated with performance measures such as sensitivity and specificity, and performance is frequently illustrated with Receiver Operating Characteristics (ROC) plots. Alternative measures such as positive predictive value (PPV) and the associated Precision/Recall (PRC) plots are used less frequently. Many bioinformatics studies develop and evaluate classifiers that are to be applied to strongly imbalanced datasets in which the number of negatives outweighs the number of positives significantly. While ROC plots are visually appealing and provide an overview of a classifier's performance across a wide range of specificities, one can ask whether ROC plots could be misleading when applied in imbalanced classification scenarios. We show here that the visual interpretability of ROC plots in the context of imbalanced datasets can be deceptive with respect to conclusions about the reliability of classification performance, owing to an intuitive but wrong interpretation of specificity. PRC plots, on the other hand, can provide the viewer with an accurate prediction of future classification performance due to the fact that they evaluate the fraction of true positives among positive predictions. Our findings have potential implications for the interpretation of a large number of studies that use ROC plots on imbalanced datasets.}
@@ -182,6 +312,226 @@
       \verb{url}
       \verb https://doi.org/10.1371/journal.pone.0118432
       \endverb
+    \endentry
+    \entry{Pybalu}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c6f4ac5021960de9f65aab4de1ebf861}{%
+           family={Mery},
+           familyi={M\bibinitperiod},
+           given={Domingo},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \strng{fullhash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \strng{bibnamehash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \strng{authorbibnamehash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \strng{authornamehash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \strng{authorfullhash}{c6f4ac5021960de9f65aab4de1ebf861}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/computervision-xray-testing/pybalu}}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{Python3 implementation of Computer Vision and Pattern Recognition library Balu}
+      \field{year}{2020}
+    \endentry
+    \entry{scikit-learn}{article}{}
+      \name{author}{16}{}{%
+        {{hash=6e96fec0d63277626bb324bd28cdecb7}{%
+           family={Pedregosa},
+           familyi={P\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b99c2df2144dc5ee09317a7833dea42d}{%
+           family={Varoquaux},
+           familyi={V\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=955f19cea89ae97bb7936078898e6255}{%
+           family={Gramfort},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2787869c9954c1d4e9891098995feb75}{%
+           family={Michel},
+           familyi={M\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=86d47ab9ca1a9dae108b4d4a0418c679}{%
+           family={Thirion},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d42f9e9cec95da1dad2232eac74982ab}{%
+           family={Grisel},
+           familyi={G\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+        {{hash=8bd8ef25258dd2311f92df23fe71ecf7}{%
+           family={Blondel},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a5ee41fa92b9e425806e1773853f1932}{%
+           family={Prettenhofer},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=0c808557734e8929976d1f06f99c4ff2}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9662a6ea01596c6dd450817ccac81c4a}{%
+           family={Dubourg},
+           familyi={D\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=39e81a3e2193b954680a0ab847a0bb55}{%
+           family={Vanderplas},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=14c4a498c032f77d0b83f86c710dd50e}{%
+           family={Passos},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dc075b18fb4710a1a37b258804c57efe}{%
+           family={Cournapeau},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=67ec0e8add781665a43010c9559111e9}{%
+           family={Brucher},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dcb3918f09eb8785e6b212a907cc37cf}{%
+           family={Perrot},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ab20fcf381cd45daa82417c6fc595051}{%
+           family={Duchesnay},
+           familyi={D\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{dae710add1b58c233b40c77fa8628347}
+      \strng{fullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \strng{bibnamehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{authorbibnamehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{authornamehash}{dae710add1b58c233b40c77fa8628347}
+      \strng{authorfullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{title}{Scikit-learn: Machine Learning in {P}ython}
+      \field{volume}{12}
+      \field{year}{2011}
+      \field{pages}{2825\bibrangedash 2830}
+      \range{pages}{6}
+    \endentry
+    \entry{sklearn_api}{inproceedings}{}
+      \name{author}{15}{}{%
+        {{hash=5325438f4daa7970e2720791d9ac690f}{%
+           family={Buitinck},
+           familyi={B\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+        {{hash=832b9967410c05c324eec6e9b19da71e}{%
+           family={Louppe},
+           familyi={L\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d3b6c8582cea4e8b6576137b6a72cadc}{%
+           family={Blondel},
+           familyi={B\bibinitperiod},
+           given={Mathieu},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bab4e5caee2d67831e464ce575022b37}{%
+           family={Pedregosa},
+           familyi={P\bibinitperiod},
+           given={Fabian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=8a6c9c0890b96766b8cc7c152d7b86a8}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=721be0317527f44db425f7a97dcab15e}{%
+           family={Grisel},
+           familyi={G\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=7fb1184b4b06404ea26547130860771e}{%
+           family={Niculae},
+           familyi={N\bibinitperiod},
+           given={Vlad},
+           giveni={V\bibinitperiod}}}%
+        {{hash=86e647e5c801f3ce733927f75f029463}{%
+           family={Prettenhofer},
+           familyi={P\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=12ebe424e1c87de156c57e8fa7683f46}{%
+           family={Gramfort},
+           familyi={G\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dd23caf60ef6fe47d09bad8ff0dc8695}{%
+           family={Grobler},
+           familyi={G\bibinitperiod},
+           given={Jaques},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b77398bb05b09a70738309551dc505a7}{%
+           family={Layton},
+           familyi={L\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0fd9a0e34f1b2adda41357c948d14986}{%
+           family={VanderPlas},
+           familyi={V\bibinitperiod},
+           given={Jake},
+           giveni={J\bibinitperiod}}}%
+        {{hash=557b78cbca511465f0b78ac10c0a9ce3}{%
+           family={Joly},
+           familyi={J\bibinitperiod},
+           given={Arnaud},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3309917dfb1d5f26d52eb9264a3296a0}{%
+           family={Holt},
+           familyi={H\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=cfa3239dded54488f9a82a5718d5b927}{%
+           family={Varoquaux},
+           familyi={V\bibinitperiod},
+           given={Gaël},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0559c32e4e19b12f1835d4bee2a9d82a}
+      \strng{fullhash}{e16647faba7aef4d40aca3c94f5333ad}
+      \strng{bibnamehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{authorbibnamehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{authornamehash}{0559c32e4e19b12f1835d4bee2a9d82a}
+      \strng{authorfullhash}{e16647faba7aef4d40aca3c94f5333ad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ECML PKDD Workshop: Languages for Data Mining and Machine Learning}
+      \field{title}{{API} design for machine learning software: experiences from the scikit-learn project}
+      \field{year}{2013}
+      \field{pages}{108\bibrangedash 122}
+      \range{pages}{15}
     \endentry
   \enddatalist
 \endrefsection

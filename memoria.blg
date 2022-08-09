@@ -1,14 +1,16 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'memoria.blg'
-[110] biber-MSWIN64:340> INFO - === 
-[145] Biber.pm:418> INFO - Reading 'memoria.bcf'
-[262] Biber.pm:972> INFO - Found 5 citekeys in bib section 0
-[279] Biber.pm:4383> INFO - Processing section 0
-[291] Biber.pm:4574> INFO - Looking for bibtex file 'bib/main.bib' for section 0
-[332] bibtex.pm:1713> INFO - LaTeX decoding ...
-[348] bibtex.pm:1518> INFO - Found BibTeX data source 'bib/main.bib'
-[399] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[399] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[399] Biber.pm:4203> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[407] bbl.pm:654> INFO - Writing 'memoria.bbl' with encoding 'UTF-8'
-[410] bbl.pm:757> INFO - Output to memoria.bbl
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'memoria.blg'
+[113] biber-MSWIN64:340> INFO - === 
+[149] Biber.pm:418> INFO - Reading 'memoria.bcf'
+[268] Biber.pm:978> INFO - Found 13 citekeys in bib section 0
+[283] Biber.pm:4401> INFO - Processing section 0
+[296] Biber.pm:4592> INFO - Looking for bibtex file 'bib/main.bib' for section 0
+[338] bibtex.pm:1713> INFO - LaTeX decoding ...
+[361] bibtex.pm:1518> INFO - Found BibTeX data source 'bib/main.bib'
+[468] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[468] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[468] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[482] bbl.pm:654> INFO - Writing 'memoria.bbl' with encoding 'UTF-8'
+[491] bbl.pm:757> INFO - Output to memoria.bbl
+[492] Biber.pm:130> WARN - legacy month field 'Nov' in entry 'mccarthy_2004' is not an integer - this will probably not sort properly.
+[492] Biber.pm:132> INFO - WARNINGS: 1

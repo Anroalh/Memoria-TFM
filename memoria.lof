@@ -1,15 +1,44 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Esquema método LBP\relax }}{7}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Descriptores de Fourier\relax }}{9}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces \relax }}{10}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Distribuciones para un caso ejemplo de ANOVA\relax }}{11}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Sacado de wikipedia (EDITAR)\relax }}{15}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces División de dataset en entrenamiento y validación\relax }}{17}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Validación cruzada de 4 particiones\relax }}{17}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Ejemplo clasificación Knn con datos bidimensionales (caso balanceado)\relax }}{19}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Ejemplo de SVM\relax }}{20}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Recta óptima SVM\relax }}{21}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Hiperplanos adicionales SVM\relax }}{22}{figure.caption.19}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema método LBP\relax }}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Descriptores de Fourier\relax }}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \relax }}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Distribuciones para un caso ejemplo de ANOVA\relax }}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sacado de wikipedia (EDITAR)\relax }}{25}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces División de dataset en entrenamiento y validación\relax }}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Validación cruzada de 4 particiones\relax }}{27}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ejemplo clasificación Knn con datos bidimensionales (caso balanceado)\relax }}{28}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Ejemplo de SVM\relax }}{30}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Recta óptima SVM\relax }}{31}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Hiperplanos adicionales SVM\relax }}{32}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Aquí debe ir una imagen sin referencia\relax }}{35}{figure.caption.25}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Procesos en la fase de extracción y selección de características\relax }}{38}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Selección y análisis del clasificador\relax }}{40}{figure.caption.27}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Nº de muestras para el dataset del área B345\relax }}{41}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Nº de muestras para el dataset del área C1C9\relax }}{42}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Resultados ANOVA para área B345\relax }}{44}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Resultados ANOVA para área C1C9\relax }}{46}{figure.caption.35}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Curva de validación para modelo KNN uniforme, F1 macro\relax }}{47}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Curva de validación para modelo KNN uniforme, Recall macro\relax }}{47}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Curva de validación para modelo KNN uniforme, Precisión macro\relax }}{48}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Curva de validación para modelo KNN uniforme en rango n=[5,20], Precisión macro\relax }}{49}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Curva de validación para modelo KNN uniforme en rango n=[5,20], Recall macro\relax }}{49}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Curva de validación para modelo KNN uniforme en rango n=[5,20], F1 macro\relax }}{50}{figure.caption.41}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Curva de validación para modelo KNN uniforme, F1 macro\relax }}{53}{figure.caption.45}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Curva de validación para modelo KNN uniforme, Recall macro\relax }}{54}{figure.caption.46}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Curva de validación para modelo KNN uniforme, Precisión macro\relax }}{54}{figure.caption.47}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Curva de validación para modelo KNN uniforme, F1 macro\relax }}{55}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Curvas de validación para kernels de modelo SVC en área C1c9 en función de parámetro de penalización C.\relax }}{57}{figure.caption.52}%
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Curva de validación para kernel RBF en función de $\gamma $ en área C1c9.\relax }}{58}{figure.caption.53}%
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Curvas de validación para kernel polinómico\relax }}{59}{figure.caption.54}%
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Curvas de validación para kernels de modelo SVC en área B345 en función de parámetro de penalización C.\relax }}{61}{figure.caption.60}%
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Curva de validación para kernel RBF en función de $\gamma $ en área B345.\relax }}{62}{figure.caption.61}%
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Curvas de validación para kernel polinómico\relax }}{62}{figure.caption.62}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Procesos en la fase de extracción y selección de características\relax }}{66}{figure.caption.68}%
 \contentsfinish 
